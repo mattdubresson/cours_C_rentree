@@ -91,7 +91,7 @@ int main(int argc, char **argv)
 
 
 
-// EXERCICE MORPION
+// SEANCE 2
 
 
 
@@ -114,7 +114,8 @@ int main(void){
 			printf("%u \n",num_case);
 
 			affichage();
-			(num_joueur==1) ? num_joueur=2 : num_joueur=1 ;
+			if (num_joueur==1){num_joueur =2;}
+			else {num_joueur=1;}
 
 	}
 	else {
