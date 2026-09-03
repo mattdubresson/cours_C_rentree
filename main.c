@@ -99,6 +99,21 @@ int main(int argc, char **argv)
 #include <stdlib.h>
 #include <stdint.h>
 
+
+
+int extraction_bits(int num_case, uint32_t etat_grille);
+
+uint32_t poser_jeton(uint32_t etat_grille, int num_case, int joueur);
+
+int victoire(uint32_t etat_grille);
+
+char attribution_case(int n, uint32_t etat_grille);
+
+void affichage(uint32_t etat_grille);
+
+
+
+
 int main(void){
 
 	int num_case=0;
@@ -112,8 +127,8 @@ int main(void){
 		val_joueur = scanf("%u",&num_case);
 		if (val_joueur == 1)
 			printf("%u \n",num_case);
-
-			affichage();
+			
+			affichage(etat_grille);
 			if (num_joueur==1){num_joueur =2;}
 			else {num_joueur=1;}
 
@@ -132,6 +147,13 @@ int main(void){
 int extraction_bits(int num_case, uint32_t etat_grille){
 	uint8_t valeur_recuperee = (etat_grille >> (2*num_case)) & 3 ;
 	return valeur_recuperee;
+}
+
+
+// fonction pour modifier la valeur d'une case dans etat_grille
+
+uint32_t poser_jeton(uint32_t etat, int case_num, int joueur) {
+    return etat | (joueur << (2 * case_num));
 }
 
 
@@ -203,30 +225,30 @@ int victoire(uint32_t etat_grille){
 
 // fonction pour donner directement quoi afficher dans chaque case en conftion de etat_grille
 
-int attribution_case(int n, char case_){
+void attribution_case(int n, char *case_){
 	if (extraction_bits(n,etat_grille) == 0){
-		case_ = " ";}
+		*case_ = " ";}
 	else if (extraction_bits(n,etat_grille) == 1){
-		case_ = "0";}
-	else {case_ = "X";}
+		*case_ = "0";}
+	else {*case_ = "X";}
 	return 0;
 }
 
 
 // fonction pour print a chaque coup l'état du morpion
 
-int affichage(void){
+void affichage(uint32_t etat_grille){
 	char case_0,case_1,case_2,case_3,case_4,case_5,case_6,case_7,case_8 ;
 
-	attribution_case(0,case_0);
-	attribution_case(1,case_1);
-	attribution_case(2,case_2);
-	attribution_case(3,case_3);
-	attribution_case(4,case_4);
-	attribution_case(5,case_5);
-	attribution_case(6,case_6);
-	attribution_case(7,case_7);
-	attribution_case(8,case_8);
+	attribution_case(0,&case_0);
+	attribution_case(1,&case_1);
+	attribution_case(2,&case_2);
+	attribution_case(3,&case_3);
+	attribution_case(4,&case_4);
+	attribution_case(5,&case_5);
+	attribution_case(6,&case_6);
+	attribution_case(7,&case_7);
+	attribution_case(8,&case_8);
 
 
 
