@@ -1,0 +1,136 @@
+
+
+OPERATEURS
+
+    +   addition,
+    -    soustraction,
+    *    multiplication,
+    /    division : Attention, ne donne que le quotient pour la division de 2 entiers,
+    %  modulo : donne le reste de la division euclidienne, n'a de sens que pour des entiers.
+    ++  :  incrémentation de 1,
+    - -   :  décrémentation de 1.
+Attention, ++a incrémente la variable avant de l'utiliser et a++ incrémente la variable après l'avoir utilisée
+
+>  ,  >=  ,  <  ,  <= sont les opérateurs classiques,
+= = est l'opérateur d'égalité. ATTENTION l'opérateur = effectue une affectation et non une comparaison,
+! =   différent de 
+
+
+
+LOGIQUE COMBINATOIRE 
+
+
+    &       AND bit à bit 
+    |       OR bit à bit 
+    ^       XOR bit à bit 
+    ~       NO bit à bit
+    -       MOINS 
+
+
+
+
+FAIRE UN IF ELSE 
+
+?       if (opérateur ternaire)
+:       else
+
+a=1 ? b='hello' : b='goodbye'
+
+
+x   
+
+
+CLASSE DES VARIABLES 
+
+ char : 8 bit
+ short : 16 bit
+ int : 32 bit
+ long : dépend du hardware et du software
+ long long : 64 bit
+ 
+
+    
+
+
+CASCADE DE IF ELSE 
+
+switch(expression)
+{
+    case constante1 : instruction 1 ou bloc 1 d'instructions
+                      break;
+
+    case constante2 : instruction 2 ou bloc 2 d'instructions
+                      break;
+
+    case constante3 : instruction 3 ou bloc 3 d'instructions
+                      break;
+
+    default         : instruction 5 ou bloc 5 d'instructions
+                      break;
+}
+
+Si la valeur de expression est constante1, l'instruction1 (ou le bloc1) s'exécute puis l'instruction break provque la sortie de la structure switch.
+
+Si aucune constante ne correspond à la valeur de l'expression, c'est l'instruction 5 (ou le bloc 5, derrière default) qui est exécuté. La lign default n'est pas obligatoire.
+
+
+
+
+
+
+EXEMPLE BOUCLE
+
+a=1;
+for(i=0; i<=5; i++)
+{
+    printf("%d \n",a);
+    a*=2;
+}
+return 0;
+
+
+
+
+
+BOUCLES WHILE
+
+
+Ces 2 boucles sont très utilisées. Elles sont équivalentes. En fonction des usages, l'une sera plus lisible que l'autre.
+
+while(expression)
+instruction 1 ou bloc 1 d'instructions
+
+Tant que l'expression est vraie, l'instruction 1 ou le bloc d'instructions 1 s'exécute.
+
+for (expr1 ; expr2 ; expr3)
+instruction 1 ou bloc 1 d'instructions
+
+Cette boucle for est équivalente à la boucle while ci-dessous :
+
+expr1;
+while(expr2)
+{
+instruction 1 ou bloc 1 d'instructions
+expr3;
+}
+
+
+
+A METTRE DANS LA FONCTION PRINTF
+
+on met d'abord notre string, et après les %... servent à 
+
+l'élément de texte %c affiche le paramètre (une variable de type entier) correspondant en ascii,
+l'élément de texte %d affiche le paramètre (une variable de type entier) correspondant en décimal signé,
+l'élément de texte %u affiche le paramètre (une variable de type entier) correspondant en décimal non signé,
+l'élément de texte %X affiche le paramètre (une variable de type entier) correspondant en hexadécimal,
+l'élément de texte %4.2f affiche le paramètre (une variable de type réel) correspondant en réel aligné sur 4 caractères, avec 2 décimal.
+
+
+
+
+BOLEENS
+
+&&  : ET logique
+| |  :  OU logique
+!  : NON
