@@ -95,174 +95,7 @@ int main(int argc, char **argv)
 
 /*
 
-#include <stdio.h>
-#include <stdlib.h>
-#include <stdint.h>
 
-
-
-int extraction_bits(int num_case, uint32_t etat_grille);
-
-uint32_t poser_jeton(uint32_t etat_grille, int num_case, int joueur);
-
-int victoire(uint32_t etat_grille);
-
-char attribution_case(int n, uint32_t etat_grille);
-
-void affichage(uint32_t etat_grille);
-
-
-
-
-int main(void){
-
-	int num_case=0;
-	int num_joueur=1 ;
-	int val_joueur;
-	uint32_t etat_grille=0;
-
-	if (!victoire(etat_grille)){
-
-		printf("Joueur %u ? ",num_joueur);
-		val_joueur = scanf("%u",&num_case);
-		if (val_joueur == 1)
-			printf("%u \n",num_case);
-			
-			affichage(etat_grille);
-			if (num_joueur==1){num_joueur =2;}
-			else {num_joueur=1;}
-
-	}
-	else {
-		printf("le gagnant est le joueur %u", victoire(etat_grille));
-	}
-	return 0;
-
-
-}
-
-
-// fonction pour récupérer la valeur d'une case enregistrée dans le nombre etat_grille
-
-int extraction_bits(int num_case, uint32_t etat_grille){
-	uint8_t valeur_recuperee = (etat_grille >> (2*num_case)) & 3 ;
-	return valeur_recuperee;
-}
-
-
-// fonction pour modifier la valeur d'une case dans etat_grille
-
-uint32_t poser_jeton(uint32_t etat, int case_num, int joueur) {
-    return etat | (joueur << (2 * case_num));
-}
-
-
-// fonction pour calculer à chaque fois si on est dans une victoire
-
-int victoire(uint32_t etat_grille){
-
-	if (!extraction_bits(0,etat_grille)){
-		if(extraction_bits(0,etat_grille) == extraction_bits(1,etat_grille) == extraction_bits(2,etat_grille)){
-			return extraction_bits(0,etat_grille);
-		}
-
-	}
-
-	if (!extraction_bits(3,etat_grille)){
-			if(extraction_bits(3,etat_grille) == extraction_bits(4,etat_grille) == extraction_bits(5,etat_grille)){
-				return extraction_bits(3,etat_grille);
-			}
-
-		}
-
-	if (!extraction_bits(6,etat_grille)){
-			if(extraction_bits(6,etat_grille) == extraction_bits(7,etat_grille) == extraction_bits(8,etat_grille)){
-				return extraction_bits(6,etat_grille);
-			}
-
-		}
-
-	if (!extraction_bits(0,etat_grille)){
-				if(extraction_bits(0,etat_grille) == extraction_bits(3,etat_grille) == extraction_bits(6,etat_grille)){
-					return extraction_bits(0,etat_grille);
-				}
-
-			}
-
-	if (!extraction_bits(1,etat_grille)){
-				if(extraction_bits(1,etat_grille) == extraction_bits(4,etat_grille) == extraction_bits(7,etat_grille)){
-					return extraction_bits(1,etat_grille);
-				}
-
-			}
-
-	if (!extraction_bits(2,etat_grille)){
-				if(extraction_bits(2,etat_grille) == extraction_bits(5,etat_grille) == extraction_bits(8,etat_grille)){
-					return extraction_bits(2,etat_grille);
-				}
-
-			}
-
-	if (!extraction_bits(0,etat_grille)){
-				if(extraction_bits(0,etat_grille) == extraction_bits(4,etat_grille) == extraction_bits(8,etat_grille)){
-					return extraction_bits(0,etat_grille);
-				}
-
-			}
-
-	if (!extraction_bits(2,etat_grille)){
-				if(extraction_bits(2,etat_grille) == extraction_bits(4,etat_grille) == extraction_bits(6,etat_grille)){
-					return extraction_bits(2,etat_grille);
-				}
-
-			}
-
-	return 0;
-
-
-}
-
-
-// fonction pour donner directement quoi afficher dans chaque case en conftion de etat_grille
-
-void attribution_case(int n, char *case_){
-	if (extraction_bits(n,etat_grille) == 0){
-		*case_ = " ";}
-	else if (extraction_bits(n,etat_grille) == 1){
-		*case_ = "0";}
-	else {*case_ = "X";}
-	return 0;
-}
-
-
-// fonction pour print a chaque coup l'état du morpion
-
-void affichage(uint32_t etat_grille){
-	char case_0,case_1,case_2,case_3,case_4,case_5,case_6,case_7,case_8 ;
-
-	attribution_case(0,&case_0);
-	attribution_case(1,&case_1);
-	attribution_case(2,&case_2);
-	attribution_case(3,&case_3);
-	attribution_case(4,&case_4);
-	attribution_case(5,&case_5);
-	attribution_case(6,&case_6);
-	attribution_case(7,&case_7);
-	attribution_case(8,&case_8);
-
-
-
-	printf("%u | %u | %u\n---------\n"
-			"%u | %u | %u\n---------\n"
-			"%u | %u | %u\n---------\n", case_6,case_7,case_8,case_3,case_4,case_5,case_0,case_1,case_2);
-
-	return 0;
-}
-
-
-*/
-
-#include <stdio.h>
 #include <stdlib.h>
 #include <stdint.h>
 
@@ -418,3 +251,46 @@ printf("%c | %c | %c\n---------\n"
 
 }
 
+*/
+
+// SEANCE 3
+
+// LES POINTEURS
+
+/*
+
+#include <stdlib.h>
+#include <stdint.h>
+
+
+int main(){
+	uint32_t a='a';
+	uint16_t b='b';
+	uint8_t c='c';
+	uint8_t d='d';
+	uint32_t *pa;
+	
+	printf("%d\n",a);
+	printf("%lX\n",pa);
+	pa = &a;
+	printf("%lX\n",pa);
+	printf("%d\n",*pa);
+	printf("%lX\n",&a);
+	printf("%lX\n",&pa);
+	return 0;
+	
+}
+
+*/
+
+// CRIBLE D'ERATHEUSTENE
+
+int main(int n){
+	int liste_entiers[n-1]={};
+	for (int i = 0; i <(n-1); i++){
+		liste_entiers[i] = i + 2;
+	}
+
+	while (liste_entiers[]
+
+}

@@ -134,3 +134,41 @@ BOLEENS
 &&  : ET logique
 | |  :  OU logique
 !  : NON
+
+
+
+TRANSTYPAGE
+
+Méthode pour réaffecter un type à une variable qui en avait déjà un
+
+int main()
+{
+    uint8_t a=5,b=22;
+    float c;
+    c=b/a;
+    printf("division sans transtypage %4.2f\n",c);
+    c=(float)b/a;
+    printf("division sans transtypage %4.2f\n",c);}
+
+le premier print renvoie 4.00 alors que le deuxieme renvoie 4.40. Dans le premier cas on converti en flotant après la division alors que dans le deuxieme cas on converti avant la division
+
+
+
+
+
+
+LES POINTEURS 
+
+&variable                               renvoie l'adresse mémoire de variable
+setvbuf(stdout,NULL,_IONBF,0);          ligne pour eviter que l'OS ne stocke les caractères dans un buffer avant de les afficher tous ensemble.
+
+
+
+
+
+LES TABLEAUX 
+
+uint8_t mon_tableau[3]={}           initialisation d'un tableau avec 3 valeurs nulles
+uint8_t mon_tableau[3]={2,4,7}      initialisation tableau 3 valeurs données
+
+
