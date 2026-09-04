@@ -290,7 +290,6 @@ int main(int n){
 	for (int i = 0; i <(n-1); i++){
 		liste_entiers[i] = i + 2;
 	}
-
-	while (liste_entiers[]
+	
 
 }

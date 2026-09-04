@@ -172,3 +172,36 @@ uint8_t mon_tableau[3]={}           initialisation d'un tableau avec 3 valeurs n
 uint8_t mon_tableau[3]={2,4,7}      initialisation tableau 3 valeurs données
 
 
+
+
+
+LES STRUCTURES 
+
+Typedef signifie que l'on crée un nouveau type de variable.
+
+typedef struct {double latitude; double longitude; int16_t altitude;}CoordGPS;
+int main()
+{
+    CoordGPS CoordonneesArcueil={48.8036,2.3317,61};
+    printf("Coordonnées d'Arcueil %f %f %d\n",   CoordonneesArcueil.latitude,
+                                                 CoordonneesArcueil.longitude,
+                                                 CoordonneesArcueil.altitude);
+
+    return 0;
+}
+
+
+Une structure peut contenir des tableaux, des chaînes de caractères et même des structures.
+
+typedef struct {double latitude; double longitude; int16_t altitude;}CoordGPS;
+typedef struct {char nom[30];CoordGPS coordonnees; int nb_habitants;}ville;
+int main()
+{
+    ville Arcueil={"Arcueil",{48.8036,2.3317,61},20120};
+    printf("Coordonnées de %s %f %f %d\n",  Arcueil.nom,
+                                            Arcueil.coordonnees.latitude,
+                                            Arcueil.coordonnees.longitude,
+                                            Arcueil.coordonnees.altitude);
+    return 0;
+}
+
