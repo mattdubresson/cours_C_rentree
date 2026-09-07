@@ -285,11 +285,43 @@ int main(){
 
 // CRIBLE D'ERATHEUSTENE
 
-int main(int n){
-	int liste_entiers[n-1]={};
-	for (int i = 0; i <(n-1); i++){
-		liste_entiers[i] = i + 2;
-	}
-	
 
+#include <stdlib.h>
+#include <stdint.h>
+
+
+int divisible_par(int k, int liste_entiers[], size_t N){
+    int c;
+    for (size_t i = k; i <= N; i++){
+        if (liste_entiers[i]%k == 0 && liste_entiers[i] != k){
+            liste_entiers[i] = 0;
+        }
+    }
+    return 0;
 }
+
+int eratheustene(int n){
+    int liste_entiers[n]={};
+    int N = sizeof(liste_entiers)/sizeof(liste_entiers[0]);
+	for (int i = 1; i <=(n); i++){
+		liste_entiers[i-1] = i;
+	}
+    for (int i=2; i<=n; i++){
+        divisible_par(i, liste_entiers, N);
+    }
+    for (int i = 0; i < n; i++){
+        if (liste_entiers[i]){
+            printf("%d ", liste_entiers[i]);
+        }
+    }
+    printf("\n");
+    return 0;
+}
+
+
+int main(){
+    eratheustene(100);
+    return 0;
+}
+
+

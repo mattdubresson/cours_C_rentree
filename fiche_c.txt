@@ -168,12 +168,17 @@ setvbuf(stdout,NULL,_IONBF,0);          ligne pour eviter que l'OS ne stocke les
 
 LES TABLEAUX 
 
-uint8_t mon_tableau[3]={}           initialisation d'un tableau avec 3 valeurs nulles
-uint8_t mon_tableau[3]={2,4,7}      initialisation tableau 3 valeurs données
+uint8_t mon_tableau[3]={}                       initialisation d'un tableau avec 3 valeurs nulles
+uint8_t mon_tableau[3]={2,4,7}                  initialisation tableau 3 valeurs données
+sizeof(mon_tableau)/sizeof(mon_tableau[0])      donne la taille du tableau (marche pour tout type d'objet en fait)
 
+si on appelle un tableau dans une fonction ca devient un pointeur, donc on ne peut pas utiliser la méthode sizeof, c'est que dans la fonction ou la table est déclarée
+astuce pour contourner ça : 
+    int divisible_par(int k, int liste_entiers[], size_t N){
+    for (size_t i = k; i <= N; i++){
+        ...}
 
-
-
+    
 
 LES STRUCTURES 
 
