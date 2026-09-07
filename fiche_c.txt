@@ -1,7 +1,7 @@
         VARIABLES   
 
 
- char :                     8 bits
+ char :                     8 bits   (est toujours fini par un caractère NULL)
  short :                    16 bits
  int :                      32 bits
  float :                    32 bits
@@ -46,12 +46,16 @@
 
 
 
+
+
         OPERATEUR TERNAIRE 
 
     ?                       if 
     :                       else
 
     exemple :               a=1 ? b='hello' : b='goodbye'
+
+
 
 
 
@@ -81,6 +85,10 @@ Si aucune constante ne correspond à la valeur de l'expression, c'est l'instruct
 
 
 
+
+
+
+
         BOUCLES 
 
     for (int i = 0,i<=N,i++){}          boucle d'incrémentation
@@ -92,23 +100,27 @@ Si aucune constante ne correspond à la valeur de l'expression, c'est l'instruct
 
 
 
-A METTRE DANS LA FONCTION PRINTF
-
-on met d'abord notre string, et après les %... servent à 
-
-l'élément de texte %c affiche le paramètre (une variable de type entier) correspondant en ascii,
-l'élément de texte %d affiche le paramètre (une variable de type entier) correspondant en décimal signé,
-l'élément de texte %u affiche le paramètre (une variable de type entier) correspondant en décimal non signé,
-l'élément de texte %X affiche le paramètre (une variable de type entier) correspondant en hexadécimal,
-l'élément de texte %4.2f affiche le paramètre (une variable de type réel) correspondant en réel aligné sur 4 caractères, avec 2 décimal.
 
 
+        PRINTF (bibliothèque stdio.h)
+
+
+ printf("...%u",a)      print classique
+ %c                     affiche  en ascii,
+ %d                     affiche  en décimal signé,
+ %u                     affiche  en décimal non signé,
+ %X                     affiche  en hexadécimal,
+ %4.2f                  affiche en réel aligné sur 4 caractères, avec 2 décimal.
 
 
 
-TRANSTYPAGE
 
-Méthode pour réaffecter un type à une variable qui en avait déjà un
+
+
+
+        TRANSTYPAGE
+
+Méthode pour réaffecter un type à une variable qui en avait déjà un. Exemple :
 
 int main()
 {
@@ -126,16 +138,21 @@ le premier print renvoie 4.00 alors que le deuxieme renvoie 4.40. Dans le premie
 
 
 
-LES POINTEURS 
 
-&variable                               renvoie l'adresse mémoire de variable
-setvbuf(stdout,NULL,_IONBF,0);          ligne pour eviter que l'OS ne stocke les caractères dans un buffer avant de les afficher tous ensemble.
+        POINTEURS 
+
+ &a                                          adresse mémoire de a
+ *pa                                         pointeur (on déclare selon la valeur qu'il renvoie)
+ *pa+=1                                      décale la valeur de l'adresse mémoire de 1 
+ setvbuf(stdout,NULL,_IONBF,0);          ligne pour eviter que l'OS ne stocke les caractères dans un buffer avant de les afficher tous ensemble.
 
 
 
 
+            
 
-LES TABLEAUX 
+
+        TABLEAUX 
 
 uint8_t mon_tableau[3]={}                       initialisation d'un tableau avec 3 valeurs nulles
 uint8_t mon_tableau[3]={2,4,7}                  initialisation tableau 3 valeurs données
@@ -151,9 +168,12 @@ astuce pour contourner ça :
 
 
 
-LES STRUCTURES 
 
-Typedef signifie que l'on crée un nouveau type de variable.
+
+
+        STRUCTURES 
+
+Typedef signifie que l'on crée un nouveau type de variable. Exemple :
 
 typedef struct {double latitude; double longitude; int16_t altitude;}CoordGPS;
 int main()
@@ -166,8 +186,8 @@ int main()
     return 0;
 }
 
-
-Une structure peut contenir des tableaux, des chaînes de caractères et même des structures.
+ 
+Une structure peut contenir des tableaux, des chaînes de caractères et même des structures. Exemple
 
 typedef struct {double latitude; double longitude; int16_t altitude;}CoordGPS;
 typedef struct {char nom[30];CoordGPS coordonnees; int nb_habitants;}ville;
@@ -180,4 +200,5 @@ int main()
                                             Arcueil.coordonnees.altitude);
     return 0;
 }
+
 

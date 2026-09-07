@@ -320,7 +320,11 @@ int eratheustene(int n){
 
 
 int main(){
-    eratheustene(100);
+    printf("Les nombres premiers sont :\n");
+    eratheustene(181);
+    uint32_t e='e';
+    uint32_t pe=&e;
+    printf("%d %c\n",pe,*pe);
     return 0;
 }
 
