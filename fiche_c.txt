@@ -8,7 +8,7 @@
  long :                     dépend du hardware et du software
  long long :                64 bits
  double :                   64 bits
-éviter les confusions :     int8_t, uint8_t, int16_t, uint16_t, int32_t, uint32_t, int64_t, uint64_t        (à récupérer dans la bibliothèque stdint.h)
+ éviter les confusions :    int8_t, uint8_t, int16_t, uint16_t, int32_t, uint32_t, int64_t, uint64_t        (à récupérer dans la bibliothèque stdint.h)
 
 
 
@@ -39,90 +39,56 @@
     -                       MOINS 
     a<<X                    décalage des bits vers la gauche de X places
     a>>X                    décalage des bits vers la droite de X places
-            
 
 
 
 
-FAIRE UN IF ELSE 
-
-?       if (opérateur ternaire)
-:       else
-
-a=1 ? b='hello' : b='goodbye'
-
-
-x   
-
-
-CLASSE DES VARIABLES 
 
 
 
-    
+        OPERATEUR TERNAIRE 
+
+    ?                       if 
+    :                       else
+
+    exemple :               a=1 ? b='hello' : b='goodbye'
 
 
-CASCADE DE IF ELSE 
+
+
+
+
+
+        CASCADE DE IF ELSE 
 
 switch(expression)
 {
     case constante1 : instruction 1 ou bloc 1 d'instructions
                       break;
-
     case constante2 : instruction 2 ou bloc 2 d'instructions
                       break;
-
     case constante3 : instruction 3 ou bloc 3 d'instructions
                       break;
-
     default         : instruction 5 ou bloc 5 d'instructions
                       break;
 }
 
 Si la valeur de expression est constante1, l'instruction1 (ou le bloc1) s'exécute puis l'instruction break provque la sortie de la structure switch.
-
-Si aucune constante ne correspond à la valeur de l'expression, c'est l'instruction 5 (ou le bloc 5, derrière default) qui est exécuté. La lign default n'est pas obligatoire.
-
+Si aucune constante ne correspond à la valeur de l'expression, c'est l'instruction 5 (ou le bloc 5, derrière default) qui est exécuté. La ligne default n'est pas obligatoire.
 
 
 
 
 
-EXEMPLE BOUCLE
 
-a=1;
-for(i=0; i<=5; i++)
-{
-    printf("%d \n",a);
-    a*=2;
-}
-return 0;
+        BOUCLES 
+
+    for (int i = 0,i<=N,i++){}          boucle d'incrémentation
+    while(...){...}                     boucle while
+    do ... while(instruction)           boucle while mais qui fait une première itération avant de vérifier la condition
 
 
 
-
-
-BOUCLES WHILE
-
-
-Ces 2 boucles sont très utilisées. Elles sont équivalentes. En fonction des usages, l'une sera plus lisible que l'autre.
-
-while(expression)
-instruction 1 ou bloc 1 d'instructions
-
-Tant que l'expression est vraie, l'instruction 1 ou le bloc d'instructions 1 s'exécute.
-
-for (expr1 ; expr2 ; expr3)
-instruction 1 ou bloc 1 d'instructions
-
-Cette boucle for est équivalente à la boucle while ci-dessous :
-
-expr1;
-while(expr2)
-{
-instruction 1 ou bloc 1 d'instructions
-expr3;
-}
 
 
 
@@ -137,13 +103,6 @@ l'élément de texte %X affiche le paramètre (une variable de type entier) corr
 l'élément de texte %4.2f affiche le paramètre (une variable de type réel) correspondant en réel aligné sur 4 caractères, avec 2 décimal.
 
 
-
-
-BOLEENS
-
-&&  : ET logique
-| |  :  OU logique
-!  : NON
 
 
 
