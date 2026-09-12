@@ -142,7 +142,8 @@ le premier print renvoie 4.00 alors que le deuxieme renvoie 4.40. Dans le premie
         POINTEURS 
 
  &a                                          adresse mémoire de a
- *pa                                         pointeur (on déclare selon la valeur qu'il renvoie)
+ *p                                          pointeur (doit être du même type que a)
+ *p=&a                                       print(a,p,*p) -> renvoie la valeur de a, l'adresse mémoire de a, la valeur de a 
  *pa+=1                                      décale la valeur de l'adresse mémoire de 1 
  setvbuf(stdout,NULL,_IONBF,0);          ligne pour eviter que l'OS ne stocke les caractères dans un buffer avant de les afficher tous ensemble.
 
