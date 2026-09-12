@@ -285,6 +285,7 @@ int main(){
 
 // CRIBLE D'ERATHEUSTENE
 
+/*
 
 #include <stdlib.h>
 #include <stdint.h>
@@ -328,4 +329,39 @@ int main(){
     return 0;
 }
 
+*/
 
+
+
+// EXERCICE DE GEMINI
+
+#include <stdlib.h>
+#include <stdint.h>
+#include <stdio.h>
+
+
+void min_max_moyenne(const int *tab, int taille, int *min, int *max, double *moyenne){
+    *min = tab[0];
+    *max = tab[0];
+    double somme = 0;
+    for (int i = 0; i<taille;i++){
+        if (tab[i] < *min){
+            *min = tab[i];
+        }
+        if (tab[i] > *max){
+            *max = tab[i];
+        }
+        somme += tab[i];
+    }
+    *moyenne = somme / taille;
+}
+
+int main() {
+    int tab[5] = {5, 2, 9, 1, 7};
+    int taille = sizeof(tab) / sizeof(tab[0]);
+    int min, max;
+    double moyenne;
+    min_max_moyenne(tab, taille, &min, &max, &moyenne);
+    printf("Min: %d\nMax: %d\nMoyenne: %.2f\n", min, max, moyenne);
+    return 0;
+}
