@@ -329,7 +329,7 @@ int main(){
     return 0;
 }
 
-*/
+
 
 
 
@@ -365,3 +365,84 @@ int main() {
     printf("Min: %d\nMax: %d\nMoyenne: %.2f\n", min, max, moyenne);
     return 0;
 }
+
+*/
+
+// Le programme "liste chainée simple" fourni construit une liste chainée simple à partir des arguments passés en ligne de commande ( argv ) :
+
+#include <stdio.h>
+#include <stdlib.h>
+
+/* Ce programme est un exemple simple d'utilisation d'une liste chainée
+ * dynamique (la taille s'adapte à la quantité de données à traiter)
+ *
+ * Il utilise les arguments passés dans argv pour les stocker dans la liste
+ * quel que soit leur nombre, ensuite cette liste est parcourue pour afficher
+ * ses éléments.
+ *
+ * lors d'un lancement, ne pas oublier les arguments ;-)
+ *
+ * P. Varoqui, EEA, sept 2012
+ */
+struct element
+{
+    int rang;                   // rang de l'argument
+    char *valeur;               // valeur de l'argument (chaine)
+    struct element *suivant;    // pointeur vers élément suivant
+};
+
+typedef struct element element;
+
+int main(int argc, char **argv)
+{
+    element premier;  // premier est une structure
+    element *encours; // encours est un pointeur
+    int i;
+    if (argc) {
+        // on démarre avec le premier
+        premier.rang=1;
+        premier.valeur=argv[1];
+        premier.suivant=NULL;
+        encours=&premier;
+        // remplissage des valeurs suivantes
+        for (i=2;i<argc;i++) {
+            (*encours).suivant=malloc(sizeof(element)); // nouvel element
+            encours=(*encours).suivant; // devient l'élément courant
+            (*encours).rang=i;
+            (*encours).valeur=argv[i];
+            (*encours).suivant=NULL; // valeur initiale
+        }
+        // liste du contenu
+        encours=&premier;
+        do {
+            printf("%d -> %s\n",(*encours).rang,(*encours).valeur);
+            if ((*encours).suivant!=NULL)
+                encours=(*encours).suivant;
+            else
+                break;
+        } while (1);
+    } else {
+        // lancé sans arguments, le programme est sans objet
+        printf("pas d'arguments à traiter :-(");
+    }
+    exit(EXIT_SUCCESS);
+}
+
+
+
+/*
+En commentaire, en tête du code, expliquer le principe d'une liste chainée.
+Vérifier le fonctionnement du code proposé et corriger le bug du cas sans argument
+
+Insertion et tri
+
+Modifier ce code pour classer les mots par ordre alphabétique lors de l'insertion d'une nouvelle valeur dans la liste (tri par insertion).
+Attention, on ne déplace ni les données ni les rangs (on imagine que valeur est de grande taille), on modifie seulement les valeurs des pointeurs "suivant".
+La fonction srtcmp de string.h peut être utile.
+
+
+Liste à double chainage
+Modifier le code précédent pour introduire un chainage arrière qui permettra de parcourir la liste dans les deux sens. Afficher le résultat du classement en ordre croissant et décroissant.
+
+*/
+
