@@ -372,6 +372,7 @@ int main() {
 
 #include <stdio.h>
 #include <stdlib.h>
+#include <string.h>
 
 /* Ce programme est un exemple simple d'utilisation d'une liste chainée
  * dynamique (la taille s'adapte à la quantité de données à traiter)
@@ -425,6 +426,13 @@ int main(int argc, char **argv)
         // lancé sans arguments, le programme est sans objet
         printf("pas d'arguments à traiter :-(");
     }
+
+    char a[]="bonjour";
+    char b[]="baonjour";
+    printf("%u\n", (unsigned int)strcmp(a,b));
+
+    
+
     exit(EXIT_SUCCESS);
 }
 
